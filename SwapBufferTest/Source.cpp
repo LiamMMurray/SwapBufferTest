@@ -12,8 +12,8 @@ volatile bool g_shutdownWriteThread = false;
 constexpr uint64_t g_BUFFER_SIZE = 16384ULL;
 constexpr unsigned g_NUM_BUFFERS = 2;
 
-alignas(8) volatile uint64_t* buffers = (volatile uint64_t*)_aligned_malloc(g_BUFFER_SIZE * sizeof(uint64_t) * g_NUM_BUFFERS, 8);
-alignas(8) volatile uint64_t buffer_sizes[g_NUM_BUFFERS];
+volatile uint64_t* buffers = (volatile uint64_t*)_aligned_malloc(g_BUFFER_SIZE * sizeof(uint64_t) * g_NUM_BUFFERS, 8);
+volatile uint64_t buffer_sizes[g_NUM_BUFFERS];
 
 unsigned read_buffer_index = 0;
 unsigned write_buffer_index = 1;
